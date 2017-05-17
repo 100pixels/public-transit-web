@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Public transit</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container" id="wrapper">
+		<ul class="nav nav-tabs">			
+			<li class="active"><a data-toggle="tab" href="#tab-empresas">Empresas</a></li>
+			<li><a data-toggle="tab" href="#tab-rutas">Rutas</a></li>
+			<li><a data-toggle="tab" href="#tab-viajes">Viajes</a></li>
+			<li><a data-toggle="tab" href="#tab-paradas">Paradas</a></li>
+		</ul>
+
+		<div class="tab-content" id="tab-content-wrapper">
+			<div id="tab-empresas" class="tab-pane fade in active">
+				<div id="container">
+				<button id="btnNuevo" class="btn btn-primary top_button">Nuevo</button>
+				<button id="btnActualizar" class="btn btn-primary top_button">Actualizar</button>
+
+				<form action="" method="POST" id="form_registrar_empresa">
+					<div class="form-group">
+						<label for="txtId">Id empresa:</label>
+						 <input class="form-control" type="text" id="txtId">
+						 </div> 
+						 <div class="form-group">
+						 <label for="txtNombre">Nombre:</label> 
+						 <input class="form-control" type="text" id="txtNombre">
+						 </div>
+						 <div class="form-group">
+						  <label for="txtDireccion">Dirección:</label>
+						<input class="form-control" type="text" id="txtDireccion">
+						</div> 
+						<input class="btn btn-primary" type="submit" value="Registrar" />						
+				</form>
+
+				<form action="" method="POST" id="form_actualizar_empresa" class="display-none">
+					<div class="form-group">
+						<label for="cbEmpresas">Selecciona tu registro:</label>
+						 <select class="form-control" id="cbEmpresas">
+						 	<option>option 10</option>
+						 	<option>option 20</option>
+						 	<option>option 30</option>
+						 </select>
+						 </div> 
+					<div class="form-group">
+						<label for="txtId">Id empresa:</label>
+						 <input class="form-control" type="text" id="txtId">
+						 </div> 
+						 <div class="form-group">
+						 <label for="txtNombre">Nombre:</label> 
+						 <input class="form-control" type="text" id="txtNombre">
+						 </div>
+						 <div class="form-group">
+						  <label for="txtDireccion">Dirección:</label>
+						<input class="form-control" type="text" id="txtDireccion">
+						</div> 
+						<input class="btn btn-primary" type="submit" value="Guardar cambios" />
+						<form action="" method="post">
+						<input class="form-control" type="hidden" id="txtIdEmpresa">
+							<button class="btn btn-primary">Eliminar</button>	
+						</form>
+				</form>
+
+
+
+				</div>
+			</div>
+			<div id="tab-rutas" class="tab-pane fade">
+				<div id="container">
+					<form action="" method="POST">
+					<div class="form-group">
+						<label for="cbRutas">Selecciona un registro:</label>
+						 <select class="form-control" id="cbRutas">
+						 	<option>option 1</option>
+						 	<option>option 2</option>
+						 	<option>option 3</option>
+						 </select>
+						 </div> 
+						 <div class="form-group">
+						<label for="cbIdRutas">Id ruta:</label>
+						 <select class="form-control" id="cbRutas">
+						 	<option>option 1</option>
+						 	<option>option 2</option>
+						 	<option>option 3</option>
+						 </select>
+						 </div> 
+						 <div class="form-group">
+						<label for="cbIdEmpresa">Id empresa:</label>
+						 <select class="form-control" id="cbIdEmpresa">
+						 	<option>option 1</option>
+						 	<option>option 2</option>
+						 	<option>option 3</option>
+						 </select>
+						 </div> 
+						 <div class="form-group">
+						 <label for="txtNombre">Nombre:</label> 
+						 <input class="form-control" type="text" id="txtNombre">
+						 </div>
+						 <div class="form-group">
+						  <label for="txtColor">Color:</label>
+						<input class="form-control" type="text" id="txtColor">
+						</div> 
+						<input class="btn btn-primary" type="submit" value="Registrar" />
+					</form>
+				</div>
+			</div>
+			<div id="tab-viajes" class="tab-pane fade">
+				<div id="container">
+					<form action="" method="POST">
+					<div class="form-group">
+						<label for="cbViajes">Selecciona un registro:</label>
+						 <select class="form-control" id="cbViajes">
+						 	<option>option 1</option>
+						 	<option>option 2</option>
+						 	<option>option 3</option>
+						 </select>
+						 </div> 
+						 <div class="form-group">
+						<label for="cbIdViajes">Id ruta:</label>
+						 <select class="form-control" id="cbIdViajes">
+						 	<option>option 1</option>
+						 	<option>option 2</option>
+						 	<option>option 3</option>
+						 </select>
+						 </div> 
+						 <div class="form-group">
+						<label for="cbIdRutas">Id empresa:</label>
+						 <select class="form-control" id="cbIdRutas">
+						 	<option>option 1</option>
+						 	<option>option 2</option>
+						 	<option>option 3</option>
+						 </select>
+						 </div> 
+						 <div class="form-group">
+						 <label for="txtDireccion">Dirección:</label> 
+						 <input class="form-control" type="text" id="txtDireccion">
+						 </div>
+						 <div class="form-group">
+						  <label for="txtIntervalo">Intervalo:</label>
+						<input class="form-control" type="text" id="txtIntervalo">
+						</div> 
+						<div class="form-group">
+						<p">Horario de servicio:</p>
+						  <label for="txtHrInicio">Hora inicial:</label>
+						<input class="form-control" type="text" id="txtHrInicio">
+						<label for="txtHrFin">Hora final:</label>
+						<input class="form-control" type="text" id="txtHrFin">
+						</div> 
+						<input class="btn btn-primary" type="submit" value="Registrar" />
+					</form>
+				</div>
+			</div>
+			<div id="tab-paradas" class="tab-pane fade">
+				<div id="map-canvas"></div>				
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	<!-- Loading javascript files -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyIm9P1GSoFqNhTmCxi5WWM6Gr818ytWA"></script>
+    <script src="js/List.js"></script>
+    <script src="js/Mapster.js"></script>
+    <script src="js/map-options.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/empresas.js"></script>
+
+</body>
+</html>

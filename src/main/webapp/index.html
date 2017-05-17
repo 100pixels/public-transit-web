@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Public transit</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+	<div class="container">
+		<form id="form_paradas" action="" method="post" class="form-horizontal">
+		
+			<div class="form-group">
+				<label for="cbEmpresa" class="control-label col-md-1">Empresa:</label>
+				<div class="col-md-10">
+					<select class="form-control" id="cbEmpresa">
+						<option>option 1</option>
+						<option>option 2</option>
+						<option>option 3</option>						
+					</select>
+				</div>
+				<div class="col-md-0">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalEmpresas">+</button>
+				</div>
+			</div>		
+			
+			<div class="form-group">
+				<label for="cbRuta" class="control-label col-md-1">Ruta:</label>
+				<div class="col-md-10">
+					<select class="form-control" id="cbRuta">
+						<option>option 1</option>
+						<option>option 2</option>
+						<option>option 3</option>						
+					</select>
+				</div>
+				<div class="col-md-0">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRutas">+</button>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="cbViaje" class="control-label col-md-1">Viaje:</label>
+				<div class="col-md-10">
+					<select class="form-control" id="cbViaje">
+						<option>option 1</option>
+						<option>option 2</option>
+						<option>option 3</option>						
+					</select>
+				</div>
+				<div class="col-md-0">
+					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalViajes">+</button>
+				</div>				
+			</div>	
+			<div class="form-group">
+				<label for="cbViaje" class="control-label col-md-1">Value:</label>
+				<div class="col-md-10">
+					<input type="text" name="txtValue" class="form-control"/>
+				</div>			
+			</div>				
+			<div class="form-group">
+				<div class="col-md-1 col-md-offset-1">					
+					<input id="submit-button" class="btn btn-primary" type="submit" value="Guardar" name="btnGuardar">
+				</div>	
+			</div>				
+		</form>
+		<div class="map-wrapper">
+				<div id="map-canvas"></div>
+		</div>
+
+	<!-- Ventana modal Empresas-->
+  <div class="modal fade" id="modalEmpresas" role="dialog">  
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Empresas</h4>
+        </div>
+        <div class="modal-body">        
+			 <ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#tab-registrar-empresa">Registrar</a></li>
+			  <li><a data-toggle="tab" href="#tab-actualizar-empresa">Actualizar</a></li>  
+			</ul>
+
+			<div class="tab-content">
+			  <div id="tab-registrar-empresa" class="tab-pane fade in active">
+			  <!-- Formulario de registro para empresas -->
+			    <form action="" class="form-horizontal modal-form" role="form">
+			      <div class="form-group">
+			        <label for="txtIdEmpresa" class="control-label col-sm-2">Id:</label>
+			        <div class="col-sm-10">
+						<input type="text" class="form-control" name="txtIdEmpresa">
+			        </div>
+
+			      </div>    
+			      <div class="form-group">
+			        <label for="txtNombre" class="control-label col-sm-2">Nombre:</label>
+			        <div class="col-sm-10">
+			        <input type="text" class="form-control" name="txtNombre">
+			        </div>
+
+			      </div>
+			      <div class="form-group">
+			        <label for="cbViaje" class="control-label col-sm-2">Dirección:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtDireccion">
+			        </div>    
+			      </div>    
+			      <div class="form-group">
+			        <div class="col-sm-2 col-md-offset-2">          
+			          <input class="btn btn-primary" type="submit" value="Guardar" name="btnGuardar">
+			        </div>  
+			      </div>        
+			    </form> <!-- Fin formulario para registrar empresas -->
+			  </div>
+			  <div id="tab-actualizar-empresa" class="tab-pane fade">
+			  <!-- Formulario para actualizar empresas -->
+			    <form action="" class="form-horizontal modal-form" role="form">
+			      <div class="form-group">
+			        <label for="cbEmpresa" class="control-label col-sm-2">Empresa:</label>
+			        <div class="col-sm-10">
+			          <select class="form-control" id="cbEmpresa">
+			            <option>option 1</option>
+			            <option>option 2</option>
+			            <option>option 3</option>           
+			          </select>
+			        </div>
+
+			      </div>    
+			      <div class="form-group">
+			        <label for="cbRuta" class="control-label col-sm-2">Nombre:</label>
+			        <div class="col-sm-10">
+			        <input type="text" class="form-control" name="txtNombre">
+			        </div>
+
+			      </div>
+			      <div class="form-group">
+			        <label for="cbViaje" class="control-label col-sm-2">Dirección:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtDireccion">
+			        </div>    
+			      </div>    
+			      <div class="form-group">
+			        <div class="col-sm-2 col-md-offset-2">          
+			          <input class="btn btn-primary" type="submit" value="Actualizar" name="btnActualizar">		         
+			        </div>  			        
+			    	<div class="col-sm-2">          
+			          <input class="btn btn-primary" type="submit" value="Eliminar" name="btnEliminar">
+			        </div>  
+			      </div>   
+     
+			    </form> <!-- Fin formulario para actualizar empresas -->
+			  </div>
+			</div>
+        </div><!-- Fin modal-body -->
+      </div>      
+    </div> 
+  </div> <!-- Fin ventana modal Empresas -->
+
+  	<!-- Ventana modal Rutas-->
+  <div class="modal fade" id="modalRutas" role="dialog">  
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Rutas</h4>
+        </div>
+        <div class="modal-body">        
+			 <ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#tab-registrar-ruta">Registrar</a></li>
+			  <li><a data-toggle="tab" href="#tab-actualizar-ruta">Actualizar</a></li>  
+			</ul>
+
+			<div class="tab-content">
+			  <div id="tab-registrar-ruta" class="tab-pane fade in active">
+								  			  <!-- Formulario de registro para rutas -->
+			    <form id="form_nueva_empresa" action="" class="form-horizontal modal-form" role="form">
+			      <div class="form-group">
+			        <label for="txtIdEmpresa" class="control-label col-sm-2">Empresa:</label>
+			        <div class="col-sm-10">
+						<select  class="form-control" name="txtIdEmpresa">
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+						</select>
+			        </div>
+			      </div>    
+			      <div class="form-group">
+			        <label for="txtIdRuta" class="control-label col-sm-2">Id:</label>
+			        <div class="col-sm-10">
+						<input type="text" class="form-control" name="txtIdRuta">
+			        </div>
+			      </div>    
+			      <div class="form-group">
+			        <label for="txtNombre" class="control-label col-sm-2">Nombre:</label>
+			        <div class="col-sm-10">
+			        <input type="text" class="form-control" name="txtNombre">
+			       </div>
+
+			      </div>
+			      <div class="form-group">
+			        <label for="txtColor" class="control-label col-sm-2">Color:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtColor">
+			        </div>    
+			      </div>    
+			      <div class="form-group">
+			        <div class="col-sm-2 col-md-offset-2">          
+			          <input class="btn btn-primary" type="submit" value="Guardar" name="btnGuardar">
+			        </div>  
+			      </div>        
+			    </form> <!-- Fin formulario para registrar rutas -->
+			  </div>
+			  <div id="tab-actualizar-ruta" class="tab-pane fade">
+								  <!-- Formulario para actualizar rutas -->
+			    <form action="" class="form-horizontal modal-form" role="form">
+			      <div class="form-group">
+			        <label for="txtIdRuta" class="control-label col-sm-2">Ruta:</label>
+			        <div class="col-sm-10">
+						<select  class="form-control" name="txtIdRuta">
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+						</select>
+			        </div>
+			      </div>   			    
+			      <div class="form-group">
+			        <label for="txtIdEmpresa" class="control-label col-sm-2">Empresa:</label>
+			        <div class="col-sm-10">
+						<select  class="form-control" name="txtIdEmpresa">
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+						</select>
+			        </div>
+			      </div>    
+
+			      <div class="form-group">
+			        <label for="txtNombre" class="control-label col-sm-2">Nombre:</label>
+			        <div class="col-sm-10">
+			        <input type="text" class="form-control" name="txtNombre">
+			       </div>
+
+			      </div>
+			      <div class="form-group">
+			        <label for="txtColor" class="control-label col-sm-2">Color:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtColor">
+			        </div>    
+			      </div>    
+			      <div class="form-group">
+			        <div class="col-sm-2 col-md-offset-2">          
+			          <input class="btn btn-primary" type="submit" value="Actualizar" name="btnActualizar">		         
+			        </div>  			        
+			    	<div class="col-sm-2">          
+			          <input class="btn btn-primary" type="submit" value="Eliminar" name="btnEliminar">
+			        </div>  
+			      </div>    
+			    </form> <!-- Fin formulario para actualizar rutas -->
+			  </div>
+			</div>
+        </div><!-- Fin modal-body -->
+      </div>      
+    </div> 
+  </div> <!-- Fin ventana modal Rutas -->
+
+  
+
+  	<!-- Ventana modal Viajes-->
+  <div class="modal fade" id="modalViajes" role="dialog">  
+    <div class="modal-dialog">    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Viajes</h4>
+        </div>
+        <div class="modal-body">        
+			 <ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#tab-registrar-viaje">Registrar</a></li>
+			  <li><a data-toggle="tab" href="#tab-actualizar-viaje">Actualizar</a></li>  
+			</ul>
+
+			<div class="tab-content">
+			  <div id="tab-registrar-viaje" class="tab-pane fade in active">
+			  				<!-- Formulario de registro para viajes -->
+			    <form action="" class="form-horizontal modal-form" role="form">
+			      <div class="form-group">
+			        <label for="txtIdViaje" class="control-label col-sm-2">Id:</label>
+			        <div class="col-sm-10">
+						<input type="text" class="form-control" name="txtIdViaje">
+			        </div>
+			      </div>  			    
+			      <div class="form-group">
+			        <label for="cbRuta" class="control-label col-sm-2">Ruta:</label>
+			        <div class="col-sm-10">
+						<select  class="form-control" name="cbRuta">
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+						</select>
+			        </div>
+			      </div>    
+			      <div class="form-group">
+			        <label for="txtDireccion" class="control-label col-sm-2">Dirección:</label>
+			        <div class="col-sm-10">
+			        <input type="text" class="form-control" name="txtDireccion">
+			       </div>
+
+			      </div>
+			      <div class="form-group">
+			        <label for="txtIntervalo" class="control-label col-sm-2">Intervalo:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtIntervalo">
+			        </div>    
+			      </div>   
+			      <div class="form-group">
+			        <label for="txtHoraInicio" class="control-label col-sm-2">Horario de:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtHoraInicio">
+			        </div>    
+			      </div>    
+			      <div class="form-group">
+			        <label for="txtHoraFin" class="control-label col-sm-2">A:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtHoraFin">
+			        </div>    
+			      </div>  
+			      <div class="form-group">
+			        <div class="col-sm-2 col-md-offset-2">          
+			          <input class="btn btn-primary" type="submit" value="Guardar" name="btnGuardar">
+			        </div>  
+			      </div>        
+			    </form> <!-- Fin formulario para registrar viajes -->
+			  </div>
+			  <div id="tab-actualizar-viaje" class="tab-pane fade">
+			  				   <!-- Formulario para actualizar viajes -->
+			    <form action="" class="form-horizontal modal-form" role="form">
+			      <div class="form-group">
+			        <label for="cbViaje" class="control-label col-sm-2">Viaje:</label>
+			        <div class="col-sm-10">
+						<select  class="form-control" name="cbViaje">
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+						</select>
+			        </div>
+			      </div>   			    
+			      <div class="form-group">
+			        <label for="cbRuta" class="control-label col-sm-2">Ruta:</label>
+			        <div class="col-sm-10">
+						<select  class="form-control" name="cbRuta">
+							<option>option 1</option>
+							<option>option 2</option>
+							<option>option 3</option>
+						</select>
+			        </div>
+			      </div>    
+			      <div class="form-group">
+			        <label for="txtDireccion" class="control-label col-sm-2">Dirección:</label>
+			        <div class="col-sm-10">
+			        <input type="text" class="form-control" name="txtDireccion">
+			       </div>
+
+			      </div>
+			      <div class="form-group">
+			        <label for="txtIntervalo" class="control-label col-sm-2">Intervalo:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtIntervalo">
+			        </div>    
+			      </div>   
+			      <div class="form-group">
+			        <label for="txtHoraInicio" class="control-label col-sm-2">Horario de:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtHoraInicio">
+			        </div>    
+			      </div>    
+			      <div class="form-group">
+			        <label for="txtHoraFin" class="control-label col-sm-2">A:</label>
+			        <div class="col-sm-10">
+			          <input type="text" class="form-control" name="txtHoraFin">
+			        </div>    
+			      </div>  
+			      <div class="form-group">
+			        <div class="col-sm-2 col-md-offset-2">          
+			          <input class="btn btn-primary" type="submit" value="Actualizar" name="btnActualizar">		         
+			        </div>  			        
+			    	<div class="col-sm-2">          
+			          <input class="btn btn-primary" type="submit" value="Eliminar" name="btnEliminar">
+			        </div>  
+			      </div>    
+			    </form> <!-- Fin formulario para actualizar viajes -->
+			  </div>
+			</div>
+        </div><!-- Fin modal-body -->
+      </div>      
+    </div> 
+  </div> <!-- Fin ventana modal Viajes -->
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Fin container -->
+	</div> 
+
+	
+	
+	<!-- Loading javascript files -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyIm9P1GSoFqNhTmCxi5WWM6Gr818ytWA"></script>
+    <script src="js/List.js"></script>
+    <script src="js/Mapster.js"></script>
+    <script src="js/map-options.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/empresas.js"></script>
+
+    <script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/nueva_empresa_form_validation.js"></script>
+	<script src="js/paradas_form_validation.js"></script>
+
+</body>
+</html>

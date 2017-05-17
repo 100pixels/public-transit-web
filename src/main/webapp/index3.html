@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Public transit</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div class="container" id="wrapper">
+		<ul class="nav nav-tabs">			
+			<li><a data-toggle="tab" href="#paradas">Paradas</a></li>
+		</ul>
+		<div class="tab-content" id="tab-content-wrapper">			
+			<div id="tab-paradas" class="tab-pane fade">
+				<div id="map-canvas"></div>				
+			</div>
+		</div>
+	</div>
+			
+	<!-- Loading javascript files -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyIm9P1GSoFqNhTmCxi5WWM6Gr818ytWA"></script>
+    <script src="js/List.js"></script>
+    <script src="js/Mapster.js"></script>
+    <script src="js/map-options.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

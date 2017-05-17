@@ -1,0 +1,52 @@
+/*Style declaration for the file index4.html*/
+
+/*html, body, #wrapper, #tab-content-wrapper
+,#tab-paradas, #map-canvas{
+	height:100%;	
+}
+
+body{	
+	padding:0;
+  	margin:0;
+}*/
+
+/*Style declaration for the file index.html*/
+html, body, .container, .map-wrapper, #map-canvas{
+	height:100%;	
+}
+
+/*body{	
+	padding:0;
+  	margin:0;
+}*/
+
+.container{
+	/*border:1px solid black;*/
+	padding:1%;
+	/*height: 100%;*/
+}
+
+.modal-form{
+	padding:2%;
+}
+
+
+/*
+Needed style declaration to display the GoogleMap instance 
+in a tab-pane element. Otherwise it's shown in grey color.
+*/
+.tab-content > .tab-pane {
+    display: block;
+    height:0;
+    overflow:hidden;
+}
+
+.tab-content > .active {
+    display: block;
+    height:auto;
+}
+
+.display-none{
+	display:none;
+}
+
